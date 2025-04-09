@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Secure Login</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="terminal">
+    <h1>ACCESS PORTAL</h1>
+    <p>Enter your credentials to proceed.</p>
+    <input type="text" id="username" placeholder="Username"><br>
+    <input type="password" id="password" placeholder="Password"><br>
+    <button onclick="login()">Login</button>
+    <p id="status"></p>
+  </div>
+
+  <script>
+    // hidden in plain sight
+    const correctUsername = "admin";
+    const correctPassword = "letmein123";
+
+    function login() {
+      const user = document.getElementById("username").value;
+      const pass = document.getElementById("password").value;
+
+      if (user === correctUsername && pass === correctPassword) {
+        window.location.href = "flag.html";
+      } else {
+        document.getElementById("status").innerText = "Access Denied.";
+      }
+    }
+  </script>
+</body>
+</html>

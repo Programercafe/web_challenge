@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Final Challenge</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="terminal">
+    <h1>CHALLENGE 4: LOOK DEEPER</h1>
+    <p>Download the image below. Something's hidden... maybe not in what you see, but in what you *don’t*.</p>
+    <a href="secret.jpg" download>📷 Download Image</a><br><br>
+
+    <input type="text" id="flagInput" placeholder="Enter the flag"><br>
+    <button onclick="checkFlag()">Submit</button>
+    <p id="response"></p>
+  </div>
+
+  <script>
+    function checkFlag() {
+      const input = document.getElementById("flagInput").value;
+      if (input === "P2P{hidden_in_bytes}") {
+        document.getElementById("response").innerText = "🎉 Correct! You’ve completed all challenges!";
+      } else {
+        document.getElementById("response").innerText = "❌ Nope! Try again.";
+      }
+    }
+  </script>
+</body>
+</html>

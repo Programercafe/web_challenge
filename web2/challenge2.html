@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Decrypt the Message</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="terminal">
+    <h1>CHALLENGE 2: ENCRYPTED TRANSMISSION</h1>
+    <p>A message was intercepted, but it's encrypted. Can you decode it?</p>
+    <p><strong>Encrypted Message:</strong> Uryyb Jbeyq!</p>
+
+    <input type="text" id="answer" placeholder="Enter the decrypted message"><br>
+    <button onclick="check()">Submit</button>
+    <p id="status"></p>
+
+    <div id="next" style="display:none;">
+      <p>✅ Flag: <strong>P2P{ROT13_Crack_Master}</strong></p>
+      <a href="challenge3.html">➡️ Go to Next Challenge</a>
+    </div>
+  </div>
+
+  <script>
+    function check() {
+      const input = document.getElementById("answer").value.trim().toLowerCase();
+      if (input === "hello world") {
+        document.getElementById("status").innerText = "Correct!";
+        document.getElementById("next").style.display = "block";
+      } else {
+        document.getElementById("status").innerText = "Incorrect, try again.";
+      }
+    }
+  </script>
+</body>
+</html>

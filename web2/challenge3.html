@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Hidden Scripts</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="terminal">
+    <h1>CHALLENGE 3: BEHIND THE CODE</h1>
+    <p>Something's hidden in the script... can you find the correct code?</p>
+
+    <input type="text" id="codeInput" placeholder="Enter secret code"><br>
+    <button onclick="validateCode()">Submit</button>
+    <p id="response"></p>
+
+    <div id="nextChallenge" style="display:none;">
+      <p>✅ Flag: <strong>P2P{JS_is_no_secret}</strong></p>
+      <a href="challenge4.html">➡️ Go to Final Challenge</a>
+    </div>
+  </div>
+
+  <script>
+    // A little JS obfuscation, not visible on the page but can be seen in DevTools
+    const secret = (() => {
+      let arr = [70, 117, 110, 67, 111, 100, 101];
+      return arr.map(c => String.fromCharCode(c)).join('');
+    })();
+
+    function validateCode() {
+      const userInput = document.getElementById("codeInput").value;
+      if (userInput === secret) {
+        document.getElementById("response").innerText = "Access Granted!";
+        document.getElementById("nextChallenge").style.display = "block";
+      } else {
+        document.getElementById("response").innerText = "Access Denied!";
+      }
+    }
+  </script>
+</body>
+</html>

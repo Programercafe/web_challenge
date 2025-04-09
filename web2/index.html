@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Challenge 1: Access Gateway</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="terminal">
+    <h1>ACCESS GATEWAY</h1>
+    <p>Enter valid credentials to unlock the next phase.</p>
+    <input type="text" id="username" placeholder="Username"><br>
+    <input type="password" id="password" placeholder="Password"><br>
+    <button onclick="login()">Login</button>
+    <p id="status"></p>
+  </div>
+
+  <!-- Hint: credentials might be hidden, inspect wisely 😉 -->
+
+  <script>
+    const encoded = atob("YWRtaW46c2VjcmV0X3Bhc3M="); // admin:secret_pass
+    const creds = encoded.split(":");
+
+    function login() {
+      const user = document.getElementById("username").value;
+      const pass = document.getElementById("password").value;
+
+      if (user === creds[0] && pass === creds[1]) {
+        document.getElementById("status").innerHTML = `
+          ✅ Access Granted!<br>
+          Flag: <strong>P2P{ACCESS_GRANTED_101}</strong><br><br>
+          <a href="challenge2.html">➡️ Proceed to Challenge 2</a>
+        `;
+      } else {
+        document.getElementById("status").innerText = "❌ Access Denied.";
+      }
+    }
+  </script>
+</body>
+</html>
